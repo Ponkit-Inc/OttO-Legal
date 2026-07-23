@@ -5,63 +5,173 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OttO — Privacy Policy</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-         max-width: 680px; margin: 0 auto; padding: 32px 20px 64px;
-         color: #1c1c1e; line-height: 1.6; }
-  h1 { font-size: 1.8em; margin-bottom: 0.2em; }
-  h2 { font-size: 1.2em; margin-top: 1.8em; }
-  .meta { color: #6e6e73; font-size: 0.9em; }
+  :root {
+    --bg: #F2F2F7;
+    --surface: rgba(255, 255, 255, 0.72);
+    --stroke: rgba(0, 0, 0, 0.08);
+    --text: #111114;
+    --text-2: rgba(16, 16, 20, 0.60);
+    --text-3: rgba(16, 16, 20, 0.35);
+    --accent: #007AFF;
+  }
   @media (prefers-color-scheme: dark) {
-    body { background: #0a0a0c; color: #f5f5f7; }
-    .meta { color: #98989d; }
+    :root {
+      --bg: #0A0A0C;
+      --surface: rgba(28, 28, 31, 0.72);
+      --stroke: rgba(255, 255, 255, 0.12);
+      --text: #F5F5F7;
+      --text-2: rgba(235, 235, 245, 0.60);
+      --text-3: rgba(235, 235, 245, 0.35);
+      --accent: #0A84FF;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                 "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 44px 20px 72px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .aurora {
+    position: fixed; inset: 0; z-index: -1; overflow: hidden;
+    pointer-events: none;
+  }
+  .aurora::before, .aurora::after {
+    content: ""; position: absolute; border-radius: 50%;
+    filter: blur(90px); opacity: 0.16;
+  }
+  .aurora::before {
+    width: 480px; height: 480px; background: var(--accent);
+    top: -180px; right: -140px;
+  }
+  .aurora::after {
+    width: 420px; height: 420px; background: #5E5CE6;
+    bottom: -200px; left: -160px;
+  }
+  main { max-width: 640px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+  .brand svg { width: 52px; height: 52px; border-radius: 12px;
+               box-shadow: 0 6px 18px rgba(0, 122, 255, 0.25); }
+  .wordmark { font-size: 34px; font-weight: 800; letter-spacing: -0.8px;
+              color: var(--accent); }
+  h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.7px;
+       margin: 18px 0 4px; }
+  .meta { color: var(--text-2); font-size: 14px; margin: 0 0 26px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--stroke);
+    border-radius: 24px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+  }
+  .card h2 {
+    font-size: 12px; font-weight: 600; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--text-3); margin: 0 0 10px;
+  }
+  .card p, .card ul { margin: 0; font-size: 15.5px; letter-spacing: -0.2px; }
+  .card p + p { margin-top: 10px; }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 8px; }
+  .card li:last-child { margin-bottom: 0; }
+  strong { font-weight: 650; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .lede { font-size: 17px; }
+  footer {
+    text-align: center; color: var(--text-3); font-size: 12.5px;
+    line-height: 1.6; margin-top: 34px; letter-spacing: 0.1px;
   }
 </style>
 </head>
 <body>
-<h1>OttO Privacy Policy</h1>
-<p class="meta">Ponkit Inc. · Effective July 23, 2026</p>
+<div class="aurora"></div>
+<main>
+  <div class="brand">
+    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="96" height="96" rx="21" fill="#007AFF"/>
+      <circle cx="21" cy="48" r="5" fill="#fff"/>
+      <rect x="33" y="34" width="8" height="28" rx="4" fill="#fff"/>
+      <rect x="45" y="24" width="8" height="48" rx="4" fill="#fff"/>
+      <rect x="57" y="38" width="8" height="20" rx="4" fill="#fff"/>
+      <circle cx="75" cy="48" r="5" fill="#fff"/>
+    </svg>
+    <span class="wordmark">OttO</span>
+  </div>
 
-<p>OttO is built on a simple promise: <strong>your notes never leave your
-iPhone.</strong> Recording, transcription, summaries, and chat all run on your
-device. OttO has no accounts, no analytics, and no tracking of any kind.</p>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Ponkit Inc. · Effective July 23, 2026</p>
 
-<h2>What OttO stores — on your device only</h2>
-<p>Your recordings, transcripts, summaries, action items, chats, folders, tags,
-and settings are stored only in the app's private storage on your iPhone. We
-cannot see, access, or recover them. Deleting the app deletes them. Use the
-share and export features to back up anything you want to keep.</p>
+  <div class="card">
+    <p class="lede">OttO is built on a simple promise: <strong>your notes never
+    leave your iPhone.</strong> Recording, transcription, summaries, and chat
+    all run on your device. OttO has no accounts, no analytics, and no tracking
+    of any kind.</p>
+  </div>
 
-<h2>What leaves your device</h2>
-<ul>
-  <li><strong>Nothing about your notes — ever.</strong> Audio, transcripts, and
-      chats are never uploaded.</li>
-  <li><strong>Optional AI model downloads.</strong> If you download a speech or
-      chat model, the app fetches the model file from Hugging Face's public
-      servers. This is a plain download; none of your content is sent.</li>
-  <li><strong>Subscription processing.</strong> Purchases go through Apple's App
-      Store. We use RevenueCat to validate subscriptions; it receives your
-      App Store purchase receipt and a random, anonymous identifier — never
-      your name, email, or notes. See
-      <a href="https://www.revenuecat.com/privacy/">RevenueCat's privacy
-      policy</a>.</li>
-</ul>
+  <div class="card">
+    <h2>What OttO stores — on your device only</h2>
+    <p>Your recordings, transcripts, summaries, action items, chats, folders,
+    tags, and settings live only in the app's private storage on your iPhone.
+    We cannot see, access, or recover them. Deleting the app deletes them. Use
+    the share and export features to back up anything you want to keep.</p>
+  </div>
 
-<h2>Microphone and speech</h2>
-<p>OttO requests microphone access solely to record your notes and speech
-recognition solely to transcribe them, using Apple's on-device speech
-frameworks or a locally downloaded Whisper model. Recordings are processed and
-stored entirely on your device.</p>
+  <div class="card">
+    <h2>What leaves your device</h2>
+    <ul>
+      <li><strong>Nothing about your notes — ever.</strong> Audio, transcripts,
+          and chats are never uploaded.</li>
+      <li><strong>Optional AI model downloads.</strong> If you download a
+          speech or chat model, the app fetches the model file from Hugging
+          Face's public servers. This is a plain download; none of your content
+          is sent.</li>
+      <li><strong>Subscription processing.</strong> Purchases go through
+          Apple's App Store. We use RevenueCat to validate subscriptions; it
+          receives your App Store purchase receipt and a random, anonymous
+          identifier — never your name, email, or notes. See
+          <a href="https://www.revenuecat.com/privacy/">RevenueCat's privacy
+          policy</a>.</li>
+    </ul>
+  </div>
 
-<h2>Children</h2>
-<p>OttO is not directed at children under 13 and collects no personal data from
-anyone.</p>
+  <div class="card">
+    <h2>Microphone and speech</h2>
+    <p>OttO requests microphone access solely to record your notes and speech
+    recognition solely to transcribe them, using Apple's on-device speech
+    frameworks or a locally downloaded Whisper model. Recordings are processed
+    and stored entirely on your device.</p>
+  </div>
 
-<h2>Changes</h2>
-<p>If this policy changes, the updated version will be posted at this address
-with a new effective date. Because OttO collects no personal data, changes are
-expected to be rare and minor.</p>
+  <div class="card">
+    <h2>Children</h2>
+    <p>OttO is not directed at children under 13 and collects no personal data
+    from anyone.</p>
+  </div>
 
-<h2>Contact</h2>
-<p>Questions? Email <a href="mailto:manvirs260@gmail.com">manvirs260@gmail.com</a>.</p>
+  <div class="card">
+    <h2>Changes</h2>
+    <p>If this policy changes, the updated version will be posted at this
+    address with a new effective date. Because OttO collects no personal data,
+    changes are expected to be rare and minor.</p>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <p>Questions? Email
+    <a href="mailto:OttO@ponkit.ca">OttO@ponkit.ca</a>.</p>
+  </div>
+
+  <footer>
+    OttO — private AI notes.<br>
+    No cloud. No account. No trackers.<br><br>
+    <a href="index.html">Support</a>
+  </footer>
+</main>
 </body>
 </html>
